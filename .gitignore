@@ -1,0 +1,75 @@
+# Arquivos e diretórios gerados pelo Visual Studio
+.vscode/
+.vs/
+bin/
+obj/
+
+# Arquivos de compilação e saída
+*.dll
+*.exe
+*.pdb
+*.log
+*.zip
+
+# Diretórios do projeto
+bin/
+obj/
+
+# Arquivos de configuração do Visual Studio
+*.suo
+*.user
+*.suo
+*.user
+*.sln.docstates
+
+# Dependências NuGet
+packages/
+
+# Arquivos sensíveis
+appsettings.json
+appsettings.Development.json
+
+# Arquivos de build do MSBuild
+msbuild.log
+
+# Diretórios de saída do Rider IDE
+.idea/
+.idea/workspace.xml
+.idea/tasks.xml
+
+# Diretórios de saída do Visual Studio Code
+.vscode/
+
+# Arquivos de registro
+logs/
+
+# Arquivos temporários
+[Tt]emp/
+[Tt]est[Rr]esults/
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Diretórios de usuário do Windows
+Desktop.ini
+Thumbs.db
+
+# Diretórios de saída do Rider IDE
+.idea/
+
+# Diretórios de saída do Visual Studio
+.vscode/
+.vs/
+
+# Diretórios do Rider IDE
+.idea/
+.idea/workspace.xml
+.idea/tasks.xml
+
+# Arquivos temporários do Rider IDE
+.idea/shelf/
+
+# Diretórios de saída do Visual Studio Code
+.vscode/
