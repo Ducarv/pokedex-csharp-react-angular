@@ -21,4 +21,19 @@ namespace Pokedex.Repositories
     {
         Task<List<Pokemon>> ListByName(string name);
     }
+
+    public interface IListPokemonByTypesRepository
+    {
+        Task<List<Pokemon>> ListByTypes(List<string> types);
+    }
+
+    public interface IDeletePokemonByIdRepository
+    {
+        Task<bool> DeleteById(int id);
+    }
+
+    public interface IEditPokemonByIdRepository
+    {
+        Task<Pokemon> EditById(int id, Pokemon updatedPokemon);
+    }
 }

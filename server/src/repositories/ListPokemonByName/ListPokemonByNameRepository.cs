@@ -22,7 +22,7 @@ namespace Pokedex.Repositories
 
             if(pokemonList.Count == 0)
             {
-                throw new Exception($"Any pokemon found with: ${name}");
+                throw new Exception($"Any pokemon found with: {name}");
             }
 
             return pokemonList;

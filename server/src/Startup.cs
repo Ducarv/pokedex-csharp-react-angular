@@ -35,6 +35,18 @@ namespace Pokedex
             // List pokemon by name
             services.AddScoped<IListPokemonByNameService, ListPokemonByNameService>();
             services.AddScoped<IListPokemonByNameRepository, ListPokemonByNameRepository>();
+
+            // List pokemon by type
+            services.AddScoped<IListPokemonByTypesService, ListPokemonByTypesService>();
+            services.AddScoped<IListPokemonByTypesRepository, ListPokemonByTypesRepository>();
+
+            // edit pokemon
+            services.AddScoped<IEditPokemonByIdService, EditPokemonByIdService>();
+            services.AddScoped<IEditPokemonByIdRepository, EditPokemonByIdRepository>();
+
+            // delete pokemon
+            services.AddScoped<IDeletePokemonByIdService, DeletePokemonByIdService>();
+            services.AddScoped<IDeletePokemonByIdRepository, DeletePokemonByIdRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

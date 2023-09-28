@@ -14,7 +14,7 @@ namespace Pokedex.Repositories
 
         public async Task<Pokemon> ListById(int id)
         {
-            var pokemon = await _context.Pokemons.FindAsync(id) ?? throw new Exception($"Pokemon ${id} not found");
+            var pokemon = await _context.Pokemons.FindAsync(id) ?? throw new Exception($"Pokemon {id} not found");
 
             return pokemon;
         }

@@ -19,7 +19,7 @@ namespace Pokedex.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> ListById(int id)
         {
-            var pokemon = await _pokemonService.ListById(id) ?? throw new Exception($"Pokemon ${id} not found");
+            var pokemon = await _pokemonService.ListById(id) ?? throw new Exception($"Pokemon {id} not found");
 
             return Ok(pokemon);
         }

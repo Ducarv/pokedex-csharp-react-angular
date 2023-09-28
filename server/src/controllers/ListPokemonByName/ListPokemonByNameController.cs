@@ -15,7 +15,7 @@ namespace Pokedex.Controllers
             _pokemonService = pokemonService;
         }
 
-        [HttpGet()]
+        [HttpGet("list-by-name")]
         public async Task<ActionResult<List<Pokemon>>> ListByName([FromQuery] string name)
         {
             if(string.IsNullOrWhiteSpace(name))
@@ -27,7 +27,7 @@ namespace Pokedex.Controllers
 
             if(pokemonList.Count == 0)
             {
-                return NotFound($"Any pokemon found with: ${name}");
+                return NotFound($"Any pokemon found with: {name}");
             }
 
             return Ok(pokemonList);

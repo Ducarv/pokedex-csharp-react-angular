@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Pokedex.Models;
 using Pokedex.Services;
+using Pokedex.Types;
 
 namespace Pokedex.Controllers
 {
@@ -18,15 +19,32 @@ namespace Pokedex.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Create([FromBody] Pokemon pokemon)
+        public async Task<IActionResult> Create([FromBody] Pokemon pokemonInput)
         {
-            if (string.IsNullOrWhiteSpace(pokemon.Name) || string.IsNullOrWhiteSpace(pokemon.Description) || string.IsNullOrWhiteSpace(pokemon.Type))
+            if(!ModelState.IsValid)
             {
-                return BadRequest("Name, Description, and Type are required fields.");
+                return BadRequest(ModelState);
             }
 
+            var validTypes = Enum.GetNames(typeof(PokemonTypes)).ToList();
+            
+            foreach (var type in pokemonInput.Types)
+            {
+                if(!validTypes.Contains(type))
+                {
+                    return BadRequest($"Invalid Pokemon type: {type}");
+                }
+            }
+
+            var pokemon = new Pokemon
+            {
+                Name = pokemonInput.Name,
+                Description = pokemonInput.Description,
+                Types = pokemonInput.Types.ToList(),
+            };
+
             await _pokemonService.Create(pokemon);
-            return Ok();
+            return StatusCode(StatusCodes.Status201Created);
         }
     }
 }
